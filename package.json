@@ -18,6 +18,7 @@
     "lint": "eslint . --max-warnings=0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lighthouse": "npm run build && PLAYWRIGHT_BROWSERS_PATH=0 LD_LIBRARY_PATH=${PLAYWRIGHT_LIBRARY_PATH:-$PWD/.tools/playwright-root/usr/lib/x86_64-linux-gnu} node scripts/run-lighthouse.mjs",
     "test": "npm run build && PLAYWRIGHT_BROWSERS_PATH=0 LD_LIBRARY_PATH=${PLAYWRIGHT_LIBRARY_PATH:-$PWD/.tools/playwright-root/usr/lib/x86_64-linux-gnu} playwright test"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "@playwright/test": "1.62.1",
     "@typescript-eslint/parser": "8.66.0",
     "astro": "7.2.0",
+    "chrome-launcher": "1.2.1",
     "eslint": "10.8.0",
     "eslint-plugin-astro": "3.1.0",
     "lighthouse": "13.4.1",

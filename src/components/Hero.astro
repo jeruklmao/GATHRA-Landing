@@ -159,6 +159,7 @@
 
   .hero h1 {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     max-width: 47rem;
     gap: 0.3rem;
   }
@@ -472,7 +473,7 @@
     }
 
     .hero__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .hero__content {
@@ -502,6 +503,16 @@
 
     .hero-visual__legend--hazard {
       right: 0;
+    }
+  }
+
+  @media (max-width: 23rem) {
+    .hero h1 {
+      font-size: 2.25rem;
+    }
+
+    .hero__accent {
+      white-space: normal;
     }
   }
 </style>
