@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gathra.my.id/sitemap-index.xml

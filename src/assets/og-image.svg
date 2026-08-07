@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F3F8FF"/>
+      <stop offset="1" stop-color="#FFFFFF"/>
+    </linearGradient>
+    <linearGradient id="route" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1459B8"/>
+      <stop offset="1" stop-color="#1D6FE8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g fill="none" stroke="#DDEBFF" stroke-linecap="round">
+    <path d="M-50 143C162 253 292 56 485 161s303 71 503-60 271-39 342 13" stroke-width="43"/>
+    <path d="M823-70c-24 159 51 225 14 366-27 105 16 206 112 354" stroke-width="28"/>
+    <path d="M-43 529c191-104 337-116 502-29 177 93 368 78 612-87 84-56 153-63 235-44" stroke-width="24"/>
+  </g>
+  <path d="m914 126 174 34 74 125-70 133-191 4-91-119z" fill="#FFE5D0" stroke="#D95700" stroke-width="6" stroke-dasharray="14 14"/>
+  <path d="M723 554c67-153 150-103 201-218 42-94-14-141 57-240" fill="none" stroke="url(#route)" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="723" cy="554" r="19" fill="#fff" stroke="#1459B8" stroke-width="12"/>
+  <circle cx="981" cy="96" r="19" fill="#FF7A1A" stroke="#fff" stroke-width="10"/>
+  <g transform="translate(88 84)">
+    <rect width="74" height="74" rx="24" fill="#0D2B5B"/>
+    <path d="M18 51c5-13 10-23 18-23 10-1 12 13 22 10 3-1 5-3 7-6" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="18" cy="51" r="6" fill="#FF7A1A" stroke="#fff" stroke-width="2"/>
+    <circle cx="65" cy="32" r="6" fill="#fff"/>
+  </g>
+  <text x="88" y="242" fill="#1459B8" font-family="Inter, Arial, sans-serif" font-size="23" font-weight="700" letter-spacing="6">GATHRA</text>
+  <text x="88" y="326" fill="#071A38" font-family="Inter, Arial, sans-serif" font-size="62" font-weight="750">Navigasi dengan</text>
+  <text x="88" y="400" fill="#071A38" font-family="Inter, Arial, sans-serif" font-size="62" font-weight="750">pertimbangan risiko banjir.</text>
+  <text x="88" y="470" fill="#4B5563" font-family="Inter, Arial, sans-serif" font-size="25">Informasi rute berdasarkan data yang tersedia.</text>
+  <g transform="translate(88 515)">
+    <rect width="306" height="52" rx="26" fill="#0D2B5B"/>
+    <circle cx="28" cy="26" r="7" fill="#FF7A1A"/>
+    <text x="48" y="34" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="650">Tahap pengembangan · Pilot</text>
+  </g>
+</svg>

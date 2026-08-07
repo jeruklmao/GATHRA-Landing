@@ -1,0 +1,112 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const technologies = [
+  'Kotlin',
+  'Jetpack Compose',
+  'MapLibre',
+  'NestJS',
+  'GraphHopper',
+  'Photon',
+  'OpenStreetMap',
+  'Cloudflare',
+];
+---
+
+<section class="section technology" aria-labelledby="technology-heading">
+  <div class="container technology__inner">
+    <div id="technology-heading">
+      <SectionHeading
+        eyebrow="Fondasi teknis"
+        title="Teknologi di balik GATHRA"
+        description="Teknologi terbuka dan komponen modern mendukung pengalaman Android, pemetaan, pencarian lokasi, dan analisis rute."
+      />
+    </div>
+
+    <ul class="technology__list" aria-label="Daftar teknologi GATHRA">
+      {
+        technologies.map((technology, index) => (
+          <li>
+            <span
+              class:list={[
+                'technology__dot',
+                { 'technology__dot--orange': index === 3 || index === 7 },
+              ]}
+              aria-hidden="true"
+            />
+            {technology}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .technology__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 0.88fr) minmax(24rem, 1.12fr);
+    gap: clamp(2.5rem, 7vw, 6rem);
+    align-items: center;
+  }
+
+  .technology :global(.section-heading) {
+    margin-bottom: 0;
+  }
+
+  .technology__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .technology__list li {
+    display: inline-flex;
+    min-height: 2.875rem;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-pill);
+    color: var(--color-blue-900);
+    background: var(--color-white);
+    box-shadow: 0 1px 2px rgb(7 26 56 / 3%);
+    font-size: 0.9rem;
+    font-weight: 690;
+  }
+
+  .technology__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-blue-600);
+    box-shadow: 0 0 0 3px var(--color-blue-100);
+  }
+
+  .technology__dot--orange {
+    background: var(--color-orange-600);
+    box-shadow: 0 0 0 3px var(--color-orange-100);
+  }
+
+  @media (max-width: 52rem) {
+    .technology__inner {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 28rem) {
+    .technology__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .technology__list li {
+      min-width: 0;
+      padding-inline: 0.7rem;
+      font-size: 0.8rem;
+    }
+  }
+</style>

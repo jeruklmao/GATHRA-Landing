@@ -1,0 +1,94 @@
+---
+interface Props {
+  name: 'routes' | 'flood' | 'risk' | 'search' | 'navigation' | 'modes';
+}
+
+const { name } = Astro.props;
+---
+
+<svg class="feature-icon" viewBox="0 0 48 48" aria-hidden="true">
+  {
+    name === 'routes' && (
+      <>
+        <path d="M9 36c5-12 10-18 17-15 6 3 7 9 13 3" />
+        <path class="feature-icon__secondary" d="M11 28c7-8 12-11 17-8 4 3 5 5 9 3" />
+        <circle cx="9" cy="36" r="3" />
+        <circle class="feature-icon__accent" cx="39" cy="24" r="3" />
+      </>
+    )
+  }
+  {
+    name === 'flood' && (
+      <>
+        <path d="m10 29 6-13 14-3 9 11-4 13-16 2z" />
+        <path class="feature-icon__accent" d="M12 31c4-3 7-3 11 0s7 3 13 0" />
+      </>
+    )
+  }
+  {
+    name === 'risk' && (
+      <>
+        <path d="M24 7 38 12v10c0 9-5 15-14 19-9-4-14-10-14-19V12z" />
+        <path class="feature-icon__accent" d="M24 16v9" />
+        <circle class="feature-icon__accent-fill" cx="24" cy="31" r="2" />
+      </>
+    )
+  }
+  {
+    name === 'search' && (
+      <>
+        <circle cx="21" cy="21" r="11" />
+        <path d="m29.5 29.5 9 9" />
+        <path class="feature-icon__accent" d="M16.5 21h9M21 16.5v9" />
+      </>
+    )
+  }
+  {
+    name === 'navigation' && (
+      <>
+        <path d="m9 21 30-13-12 31-4-13z" />
+        <path class="feature-icon__accent" d="m23 26 16-18" />
+      </>
+    )
+  }
+  {
+    name === 'modes' && (
+      <>
+        <path d="m8 30 3-9h19l4 9" />
+        <path d="M8 30h29v7h-5M13 37H8v-7" />
+        <circle cx="17" cy="37" r="4" />
+        <circle cx="28" cy="37" r="4" />
+        <path class="feature-icon__accent" d="M33 16h7M36.5 12.5v7" />
+      </>
+    )
+  }
+</svg>
+
+<style>
+  .feature-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .feature-icon circle:not(.feature-icon__accent-fill) {
+    fill: var(--color-white);
+  }
+
+  .feature-icon__secondary {
+    opacity: 0.36;
+  }
+
+  .feature-icon__accent {
+    stroke: var(--color-orange-600);
+  }
+
+  .feature-icon__accent-fill {
+    fill: var(--color-orange-600);
+    stroke: none;
+  }
+</style>

@@ -1,0 +1,329 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const steps = [
+  {
+    number: '1',
+    title: 'Data kondisi banjir diterima',
+    description:
+      'Pada pilot saat ini, masukan banjir berasal dari data simulasi—bukan sensor produksi.',
+  },
+  {
+    number: '2',
+    title: 'Backend membentuk area risiko',
+    description:
+      'Snapshot data diterjemahkan menjadi area yang dapat dipertimbangkan dalam analisis rute.',
+  },
+  {
+    number: '3',
+    title: 'Rute dan alternatif dihitung',
+    description:
+      'GraphHopper menghitung kandidat rute, lalu GATHRA mengevaluasinya terhadap area risiko.',
+  },
+  {
+    number: '4',
+    title: 'Aplikasi menyajikan konteks',
+    description: 'Android menampilkan pilihan rute, indikasi banjir, dan informasi tingkat risiko.',
+  },
+];
+---
+
+<section class="section workflow" id="cara-kerja" aria-labelledby="workflow-heading">
+  <div class="container">
+    <div id="workflow-heading">
+      <SectionHeading
+        eyebrow="Alur informasi"
+        title="Cara kerja GATHRA"
+        description="Satu alur terpisah menjaga aplikasi tetap berfokus pada pengalaman pengguna, sementara analisis rute dilakukan di layanan GATHRA."
+      />
+    </div>
+
+    <ol class="workflow__steps">
+      {
+        steps.map((step) => (
+          <li class="workflow-step">
+            <span class="workflow-step__number" aria-hidden="true">
+              {step.number}
+            </span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="architecture" aria-labelledby="architecture-title">
+      <div class="architecture__intro">
+        <p class="architecture__label">Arsitektur publik</p>
+        <h3 id="architecture-title">Dari indikasi kondisi menuju konteks perjalanan.</h3>
+        <p>
+          Diagram ini menunjukkan batas sistem secara ringkas tanpa membuka detail infrastruktur
+          privat.
+        </p>
+      </div>
+
+      <div class="architecture__flow" role="list" aria-label="Alur arsitektur GATHRA">
+        <div class="architecture__node architecture__node--source" role="listitem">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path
+              d="M5 20c4-3 7-3 11 0s7 3 11 0M7 13c3-2 6-2 9 0s6 2 9 0"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+          <span>Sumber data banjir<small>Simulasi saat ini</small></span>
+        </div>
+        <span class="architecture__arrow" aria-hidden="true">→</span>
+        <div class="architecture__node" role="listitem">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect
+              x="5"
+              y="7"
+              width="22"
+              height="18"
+              rx="4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"></rect>
+            <path
+              d="M10 13h12M10 19h7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+          <span>Backend GATHRA</span>
+        </div>
+        <span class="architecture__arrow" aria-hidden="true">→</span>
+        <div class="architecture__node" role="listitem">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path
+              d="M6 24c4-10 8-14 13-11 4 2 4 7 8 4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+            <circle cx="6" cy="24" r="2.5" fill="currentColor"></circle>
+            <circle cx="27" cy="17" r="2.5" fill="#d95700"></circle>
+          </svg>
+          <span>Analisis rute</span>
+        </div>
+        <span class="architecture__arrow" aria-hidden="true">→</span>
+        <div class="architecture__node" role="listitem">
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <rect
+              x="8"
+              y="3"
+              width="16"
+              height="26"
+              rx="4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"></rect>
+            <path
+              d="M13 7h6M14 25h4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+          <span>Aplikasi Android</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .workflow__steps {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .workflow-step {
+    position: relative;
+    min-width: 0;
+    padding: 0 1.35rem 2rem;
+    border-top: 2px solid var(--color-blue-100);
+  }
+
+  .workflow-step:first-child {
+    padding-left: 0;
+  }
+
+  .workflow-step:last-child {
+    padding-right: 0;
+  }
+
+  .workflow-step__number {
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-top: -1.45rem;
+    margin-bottom: 1.2rem;
+    place-items: center;
+    border: 5px solid var(--color-white);
+    border-radius: 50%;
+    color: var(--color-white);
+    background: var(--color-blue-700);
+    box-shadow: 0 0 0 1px var(--color-blue-100);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+
+  .workflow-step:nth-child(4) .workflow-step__number {
+    background: var(--color-orange-700);
+  }
+
+  .workflow-step p {
+    margin-top: 0.65rem;
+    color: var(--color-neutral-600);
+    font-size: 0.9rem;
+  }
+
+  .architecture {
+    display: grid;
+    grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.6fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+    margin-top: clamp(2.5rem, 6vw, 5rem);
+    padding: clamp(1.5rem, 4vw, 2.75rem);
+    border: 1px solid var(--color-blue-100);
+    border-radius: var(--radius-xl);
+    background: var(--color-blue-50);
+  }
+
+  .architecture__label {
+    margin-bottom: 0.7rem;
+    color: var(--color-blue-700);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .architecture__intro h3 {
+    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  }
+
+  .architecture__intro > p:last-child {
+    margin-top: 0.75rem;
+    color: var(--color-neutral-600);
+    font-size: 0.9rem;
+  }
+
+  .architecture__flow {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(
+        0,
+        1fr
+      );
+    gap: 0.55rem;
+    align-items: center;
+  }
+
+  .architecture__node {
+    display: grid;
+    min-width: 0;
+    min-height: 8.2rem;
+    align-content: center;
+    justify-items: center;
+    gap: 0.75rem;
+    padding: 1rem 0.65rem;
+    border: 1px solid var(--color-blue-100);
+    border-radius: var(--radius-md);
+    color: var(--color-blue-700);
+    background: var(--color-white);
+    text-align: center;
+  }
+
+  .architecture__node--source {
+    border-color: var(--color-orange-100);
+    color: var(--color-orange-700);
+    background: var(--color-orange-50);
+  }
+
+  .architecture__node svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .architecture__node span {
+    color: var(--color-blue-950);
+    font-size: 0.78rem;
+    font-weight: 760;
+    line-height: 1.3;
+  }
+
+  .architecture__node small {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--color-orange-800);
+    font-size: 0.64rem;
+    font-weight: 650;
+  }
+
+  .architecture__arrow {
+    color: var(--color-blue-600);
+    font-size: 1.3rem;
+    font-weight: 800;
+  }
+
+  @media (max-width: 62rem) {
+    .architecture {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 50rem) {
+    .workflow__steps {
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem 0;
+    }
+
+    .architecture__flow {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+
+    .architecture__node {
+      width: 100%;
+      min-height: 6.5rem;
+    }
+
+    .architecture__arrow {
+      transform: rotate(90deg);
+      justify-self: center;
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .workflow__steps {
+      grid-template-columns: 1fr;
+      gap: 0;
+      padding-left: 1.3rem;
+      border-left: 2px solid var(--color-blue-100);
+    }
+
+    .workflow-step,
+    .workflow-step:first-child,
+    .workflow-step:last-child {
+      padding: 0 0 2.25rem 1.45rem;
+      border-top: 0;
+    }
+
+    .workflow-step__number {
+      position: absolute;
+      top: 0;
+      left: -2.9rem;
+      margin: 0;
+    }
+  }
+</style>

@@ -1,0 +1,591 @@
+---
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section class="section section--muted gallery" aria-labelledby="gallery-heading">
+  <div class="container">
+    <div id="gallery-heading">
+      <SectionHeading
+        eyebrow="Pratinjau antarmuka"
+        title="Lihat GATHRA bekerja"
+        description="Ilustrasi berikut merangkum alur yang telah tersedia pada aplikasi Android. Detail tampilan dapat berubah selama pengembangan."
+      />
+    </div>
+
+    <div class="gallery__grid">
+      <figure class="preview-card preview-card--primary">
+        <div
+          class="preview-screen preview-screen--route"
+          role="img"
+          aria-label="Ilustrasi pratinjau rute dengan dua pilihan rute dan area terindikasi banjir"
+        >
+          <div class="preview-screen__status"><span>08.42</span><span>● ◒ ▰</span></div>
+          <div class="preview-screen__brand">GATHRA · RUTE <span>Mobil</span></div>
+          <div class="preview-screen__search">
+            <span class="dot dot--blue"></span><span>Lokasi saat ini</span>
+            <span class="dot dot--orange"></span><span>Monumen Nasional</span>
+          </div>
+          <div class="preview-map">
+            <svg viewBox="0 0 360 420" aria-hidden="true">
+              <rect width="360" height="420" fill="#f3f8ff"></rect>
+              <g fill="none" stroke="#d8e6f7" stroke-linecap="round">
+                <path d="M-10 76c78 39 122-9 189 24 66 32 113-13 195-29" stroke-width="20"></path>
+                <path d="M56-15c9 72-18 124 32 184 51 61 37 132 12 269" stroke-width="14"></path>
+                <path d="M-14 277c92-46 155-24 218-15 57 8 92-31 173-70" stroke-width="13"></path>
+                <path d="M236-12c-5 83 31 122 14 194-10 40-4 92 33 153" stroke-width="11"></path>
+              </g>
+              <path
+                d="m211 119 83 9 33 56-39 62-82-6-28-61z"
+                fill="#ffe5d0"
+                stroke="#d95700"
+                stroke-width="2.5"></path>
+              <path
+                d="M64 361c30-64 68-64 84-125 14-55-10-94 24-132 27-31 64-22 105-66"
+                fill="none"
+                stroke="#1459b8"
+                stroke-width="8"
+                stroke-linecap="round"></path>
+              <path
+                d="M64 361c57-26 87-19 128-70 39-49 55-102 85-253"
+                fill="none"
+                stroke="#78a8e8"
+                stroke-width="5"
+                stroke-linecap="round"
+                stroke-dasharray="8 8"></path>
+              <circle cx="64" cy="361" r="9" fill="#fff" stroke="#1459b8" stroke-width="6"></circle>
+              <circle cx="277" cy="38" r="9" fill="#ff7a1a" stroke="#fff" stroke-width="5"></circle>
+            </svg>
+            <span class="preview-map__hazard">Indikasi banjir</span>
+          </div>
+          <div class="preview-sheet">
+            <div class="preview-sheet__handle"></div>
+            <div class="route-row route-row--selected">
+              <span><small>Direkomendasikan</small><strong>24 mnt · 11,2 km</strong></span>
+              <em>Risiko sedang</em>
+            </div>
+            <div class="route-row">
+              <span><small>Rute alternatif</small><strong>27 mnt · 12,6 km</strong></span>
+              <em class="route-row__low">Risiko rendah</em>
+            </div>
+            <p>Data banjir simulasi · Cakupan mungkin tidak lengkap</p>
+          </div>
+        </div>
+        <figcaption>
+          <span>01 · Pratinjau rute</span>
+          <h3>Bandingkan pilihan dalam satu tampilan.</h3>
+          <p>
+            Rute, estimasi perjalanan, dan indikasi risiko disajikan bersama untuk dipertimbangkan.
+          </p>
+        </figcaption>
+      </figure>
+
+      <figure class="preview-card">
+        <div
+          class="preview-screen preview-screen--hazard"
+          role="img"
+          aria-label="Ilustrasi detail area terindikasi banjir dengan label risiko tinggi dan sumber simulasi"
+        >
+          <div class="preview-screen__status"><span>08.44</span><span>● ◒ ▰</span></div>
+          <div class="preview-screen__brand">GATHRA · RUTE <span>Motor</span></div>
+          <div class="preview-map preview-map--detail">
+            <svg viewBox="0 0 360 470" aria-hidden="true">
+              <rect width="360" height="470" fill="#f3f8ff"></rect>
+              <g fill="none" stroke="#d7e5f7" stroke-linecap="round">
+                <path d="M-8 92c84 38 122 1 183 23s107-4 194-49" stroke-width="18"></path>
+                <path d="M90-20c-2 92-19 139 30 210 41 60 33 159 10 298" stroke-width="13"></path>
+                <path d="M-15 319c78-32 145-18 212-3 66 15 112-30 180-74" stroke-width="11"></path>
+              </g>
+              <path
+                d="m105 120 150-14 64 82-47 108-139 4-62-85z"
+                fill="#ffd8b8"
+                stroke="#b54708"
+                stroke-width="3"></path>
+              <path
+                d="M52 396c29-57 74-61 91-121 17-57-9-91 28-131 27-29 62-18 110-67"
+                fill="none"
+                stroke="#1459b8"
+                stroke-width="8"
+                stroke-linecap="round"></path>
+              <circle cx="210" cy="190" r="19" fill="#fff" stroke="#b54708" stroke-width="4"
+              ></circle>
+              <path
+                d="M210 180v12M210 199h.01"
+                stroke="#b54708"
+                stroke-width="4"
+                stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <div class="hazard-sheet">
+            <div class="preview-sheet__handle"></div>
+            <span class="hazard-sheet__badge">Risiko tinggi</span>
+            <h4>Area terindikasi banjir</h4>
+            <dl>
+              <div><dt>Sumber data</dt><dd>Data banjir simulasi</dd></div>
+              <div><dt>Status</dt><dd>Cakupan mungkin tidak lengkap</dd></div>
+            </dl>
+            <p>Hindari melintasi jika memungkinkan dan periksa kondisi di lapangan.</p>
+          </div>
+        </div>
+        <figcaption>
+          <span>02 · Detail bahaya</span>
+          <h3>Lihat konteks di balik sebuah area.</h3>
+          <p>Tingkat risiko, sumber data, dan batasan cakupan tetap terlihat saat detail dibuka.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="preview-card">
+        <div
+          class="preview-screen preview-screen--navigation"
+          role="img"
+          aria-label="Ilustrasi navigasi aktif dengan petunjuk belok, rute biru, dan area terindikasi banjir"
+        >
+          <div class="preview-screen__status preview-screen__status--dark">
+            <span>08.51</span><span>● ◒ ▰</span>
+          </div>
+          <div class="nav-instruction">
+            <svg viewBox="0 0 40 40" aria-hidden="true"
+              ><path
+                d="M26 33V18c0-5-3-8-8-8h-7m6-6-6 6 6 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path></svg
+            >
+            <div><strong>Belok kiri</strong><span>350 m · Jalan berikutnya</span></div>
+          </div>
+          <div class="preview-map preview-map--navigation">
+            <svg viewBox="0 0 360 530" aria-hidden="true">
+              <rect width="360" height="530" fill="#edf5ff"></rect>
+              <g fill="none" stroke="#d2e2f7" stroke-linecap="round">
+                <path d="M-15 107c84 41 123-8 193 24 62 28 102-7 196-45" stroke-width="21"></path>
+                <path d="M73-20c12 105-11 139 35 227 46 87 22 175-12 345" stroke-width="15"></path>
+                <path d="M-16 373c96-49 161-20 223-9 67 12 104-24 169-63" stroke-width="12"></path>
+              </g>
+              <path
+                d="m224 155 86 10 37 65-49 65-83-14-27-66z"
+                fill="#ffe5d0"
+                stroke="#d95700"
+                stroke-width="2.5"></path>
+              <path
+                d="M82 475c11-89 57-105 74-173 18-71-16-119 27-168 31-35 65-22 98-74"
+                fill="none"
+                stroke="#fff"
+                stroke-width="17"
+                stroke-linecap="round"></path>
+              <path
+                d="M82 475c11-89 57-105 74-173 18-71-16-119 27-168 31-35 65-22 98-74"
+                fill="none"
+                stroke="#1459b8"
+                stroke-width="9"
+                stroke-linecap="round"></path>
+              <path d="m82 452 15 23-23 15z" fill="#1459b8" stroke="#fff" stroke-width="4"></path>
+            </svg>
+          </div>
+          <div class="navigation-sheet">
+            <span><small>Waktu</small><strong>18 mnt</strong></span>
+            <span><small>Jarak</small><strong>7,4 km</strong></span>
+            <span><small>GPS</small><strong>Baik</strong></span>
+          </div>
+        </div>
+        <figcaption>
+          <span>03 · Navigasi aktif</span>
+          <h3>Ikuti petunjuk dengan konteks yang tetap terlihat.</h3>
+          <p>Rute, progres, dan poligon indikasi banjir tetap berada dalam tampilan navigasi.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 2.5vw, 1.75rem);
+    align-items: start;
+  }
+
+  .preview-card {
+    min-width: 0;
+    margin: 0;
+  }
+
+  .preview-screen {
+    position: relative;
+    width: min(100%, 23rem);
+    aspect-ratio: 9 / 16;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 0.5rem solid var(--color-blue-950);
+    border-radius: clamp(1.75rem, 4vw, 2.7rem);
+    background: var(--color-white);
+    box-shadow: var(--shadow-md);
+  }
+
+  .preview-screen::before {
+    position: absolute;
+    z-index: 8;
+    top: 0.45rem;
+    left: 50%;
+    width: 24%;
+    height: 0.28rem;
+    transform: translateX(-50%);
+    border-radius: var(--radius-pill);
+    background: rgb(17 24 39 / 34%);
+    content: '';
+  }
+
+  .preview-screen__status {
+    position: relative;
+    z-index: 7;
+    display: flex;
+    height: 2rem;
+    align-items: end;
+    justify-content: space-between;
+    padding: 0 1rem 0.3rem;
+    color: var(--color-neutral-700);
+    background: var(--color-white);
+    font-size: clamp(0.43rem, 0.8vw, 0.62rem);
+    font-weight: 700;
+  }
+
+  .preview-screen__status--dark {
+    color: var(--color-white);
+    background: var(--color-blue-950);
+  }
+
+  .preview-screen__brand {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    height: 2.8rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 0.9rem;
+    color: var(--color-blue-900);
+    background: var(--color-white);
+    font-size: clamp(0.48rem, 0.9vw, 0.7rem);
+    font-weight: 820;
+    letter-spacing: 0.1em;
+  }
+
+  .preview-screen__brand span {
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-pill);
+    color: var(--color-blue-700);
+    background: var(--color-blue-50);
+    font-size: 0.8em;
+    letter-spacing: 0;
+  }
+
+  .preview-screen__search {
+    position: absolute;
+    z-index: 5;
+    top: 5.2rem;
+    right: 0.75rem;
+    left: 0.75rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.42rem 0.5rem;
+    padding: 0.68rem;
+    border: 1px solid var(--color-neutral-200);
+    border-radius: 0.8rem;
+    color: var(--color-neutral-600);
+    background: rgb(255 255 255 / 96%);
+    box-shadow: var(--shadow-sm);
+    font-size: clamp(0.45rem, 0.86vw, 0.67rem);
+  }
+
+  .dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    margin-top: 0.17rem;
+    border-radius: 50%;
+  }
+
+  .dot--blue {
+    background: var(--color-blue-700);
+  }
+
+  .dot--orange {
+    background: var(--color-orange-600);
+  }
+
+  .preview-map {
+    position: absolute;
+    inset: 4.8rem 0 35%;
+    overflow: hidden;
+  }
+
+  .preview-map svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .preview-map__hazard {
+    position: absolute;
+    top: 36%;
+    right: 5%;
+    padding: 0.28rem 0.42rem;
+    border: 1px solid var(--color-orange-100);
+    border-radius: 0.45rem;
+    color: var(--color-orange-800);
+    background: rgb(255 255 255 / 94%);
+    font-size: clamp(0.38rem, 0.74vw, 0.57rem);
+    font-weight: 750;
+  }
+
+  .preview-sheet,
+  .hazard-sheet {
+    position: absolute;
+    z-index: 6;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 0.7rem 0.85rem 0.9rem;
+    border-radius: 1.25rem 1.25rem 0 0;
+    background: var(--color-white);
+    box-shadow: 0 -8px 30px rgb(7 26 56 / 10%);
+  }
+
+  .preview-sheet__handle {
+    width: 2.7rem;
+    height: 0.24rem;
+    margin: 0 auto 0.65rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-neutral-300);
+  }
+
+  .route-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.55rem;
+    padding: 0.55rem;
+    border: 1px solid transparent;
+    border-radius: 0.7rem;
+  }
+
+  .route-row--selected {
+    border-color: var(--color-blue-200);
+    background: var(--color-blue-50);
+  }
+
+  .route-row > span {
+    display: grid;
+  }
+
+  .route-row small,
+  .preview-sheet > p {
+    color: var(--color-neutral-500);
+    font-size: clamp(0.36rem, 0.7vw, 0.54rem);
+  }
+
+  .route-row strong {
+    color: var(--color-blue-950);
+    font-size: clamp(0.48rem, 0.9vw, 0.7rem);
+  }
+
+  .route-row em {
+    padding: 0.25rem 0.38rem;
+    border-radius: var(--radius-pill);
+    color: var(--color-orange-800);
+    background: var(--color-orange-100);
+    font-size: clamp(0.34rem, 0.65vw, 0.5rem);
+    font-style: normal;
+    font-weight: 760;
+    white-space: nowrap;
+  }
+
+  .route-row .route-row__low {
+    color: var(--color-blue-800);
+    background: var(--color-blue-100);
+  }
+
+  .preview-sheet > p {
+    margin-top: 0.45rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-neutral-200);
+  }
+
+  .preview-map--detail {
+    inset: 4.8rem 0 0;
+  }
+
+  .hazard-sheet {
+    padding-inline: 1rem;
+  }
+
+  .hazard-sheet__badge {
+    display: inline-flex;
+    padding: 0.28rem 0.5rem;
+    border-radius: var(--radius-pill);
+    color: var(--color-white);
+    background: var(--color-orange-700);
+    font-size: clamp(0.4rem, 0.78vw, 0.6rem);
+    font-weight: 780;
+  }
+
+  .hazard-sheet h4 {
+    margin: 0.55rem 0 0;
+    color: var(--color-blue-950);
+    font-size: clamp(0.74rem, 1.3vw, 1rem);
+    line-height: 1.25;
+  }
+
+  .hazard-sheet dl {
+    display: grid;
+    gap: 0.25rem;
+    margin: 0.65rem 0;
+  }
+
+  .hazard-sheet dl div {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-block: 0.35rem;
+    border-bottom: 1px solid var(--color-neutral-200);
+    font-size: clamp(0.4rem, 0.76vw, 0.58rem);
+  }
+
+  .hazard-sheet dt {
+    color: var(--color-neutral-500);
+  }
+
+  .hazard-sheet dd {
+    margin: 0;
+    color: var(--color-neutral-800);
+    font-weight: 680;
+    text-align: right;
+  }
+
+  .hazard-sheet > p {
+    color: var(--color-neutral-600);
+    font-size: clamp(0.4rem, 0.76vw, 0.58rem);
+  }
+
+  .preview-screen--navigation {
+    background: var(--color-blue-950);
+  }
+
+  .nav-instruction {
+    position: relative;
+    z-index: 6;
+    display: flex;
+    height: 5.35rem;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-white);
+    background: var(--color-blue-950);
+  }
+
+  .nav-instruction svg {
+    width: 2.7rem;
+    height: 2.7rem;
+    flex: 0 0 auto;
+  }
+
+  .nav-instruction div {
+    display: grid;
+  }
+
+  .nav-instruction strong {
+    font-size: clamp(0.78rem, 1.4vw, 1.05rem);
+  }
+
+  .nav-instruction span {
+    color: var(--color-blue-100);
+    font-size: clamp(0.42rem, 0.8vw, 0.62rem);
+  }
+
+  .preview-map--navigation {
+    inset: 7.35rem 0 3.75rem;
+  }
+
+  .navigation-sheet {
+    position: absolute;
+    z-index: 6;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    min-height: 3.75rem;
+    align-items: center;
+    padding-inline: 0.65rem;
+    background: var(--color-white);
+  }
+
+  .navigation-sheet span {
+    display: grid;
+    justify-items: center;
+    border-right: 1px solid var(--color-neutral-200);
+  }
+
+  .navigation-sheet span:last-child {
+    border-right: 0;
+  }
+
+  .navigation-sheet small {
+    color: var(--color-neutral-500);
+    font-size: clamp(0.36rem, 0.68vw, 0.52rem);
+  }
+
+  .navigation-sheet strong {
+    color: var(--color-blue-950);
+    font-size: clamp(0.5rem, 0.9vw, 0.7rem);
+  }
+
+  figcaption {
+    max-width: 23rem;
+    margin: 1.5rem auto 0;
+  }
+
+  figcaption > span {
+    color: var(--color-blue-700);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  figcaption h3 {
+    margin-top: 0.5rem;
+  }
+
+  figcaption p {
+    margin-top: 0.6rem;
+    color: var(--color-neutral-600);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 56rem) {
+    .gallery__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 3.5rem;
+    }
+
+    .preview-card--primary {
+      grid-column: 1 / -1;
+      width: min(100%, 25rem);
+      justify-self: center;
+    }
+  }
+
+  @media (max-width: 38rem) {
+    .gallery__grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+
+    .preview-card--primary {
+      grid-column: auto;
+    }
+
+    .preview-screen {
+      width: min(88vw, 22rem);
+    }
+  }
+</style>

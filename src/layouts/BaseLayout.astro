@@ -1,0 +1,74 @@
+---
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+  robots?: string;
+}
+
+const defaultTitle = 'GATHRA — Navigasi dengan Pertimbangan Risiko Banjir';
+const defaultDescription =
+  'GATHRA membantu pengendara melihat area yang terindikasi banjir dan memilih rute dengan risiko lebih rendah berdasarkan data yang tersedia.';
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  canonicalPath = Astro.url.pathname,
+  robots = 'index, follow',
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath, Astro.site);
+const socialImageUrl = new URL('/og-image.png', Astro.site);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'GATHRA',
+  url: new URL('/', Astro.site).toString(),
+  inLanguage: 'id-ID',
+  description: defaultDescription,
+};
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#0D2B5B" />
+
+    <title>{title}</title>
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="GATHRA" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="GATHRA, navigasi dengan pertimbangan risiko banjir" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content="GATHRA, navigasi dengan pertimbangan risiko banjir" />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

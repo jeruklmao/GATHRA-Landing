@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Halaman tidak ditemukan — GATHRA"
+  description="Halaman yang Anda cari tidak ditemukan di situs GATHRA."
+  canonicalPath="/404"
+  robots="noindex, follow"
+>
+  <main class="not-found" id="main-content">
+    <div class="container not-found__grid">
+      <div class="not-found__content">
+        <p class="eyebrow">Rute halaman terputus</p>
+        <h1>404 — Halaman tidak ditemukan</h1>
+        <p>
+          Alamat mungkin berubah atau tidak tersedia. Kembali ke beranda untuk melanjutkan
+          menjelajahi GATHRA.
+        </p>
+        <div class="not-found__actions">
+          <a class="button button--primary" href="/">Kembali ke beranda</a>
+          <a class="text-link" href="/#status">Lihat status pengembangan</a>
+        </div>
+      </div>
+
+      <div class="not-found__visual" aria-hidden="true">
+        <svg viewBox="0 0 520 390">
+          <rect x="1" y="1" width="518" height="388" rx="42" fill="#f3f8ff" stroke="#ddebff"></rect>
+          <g fill="none" stroke="#d6e5f8" stroke-linecap="round">
+            <path d="M-20 94c104 61 159-13 258 27s157 11 302-60" stroke-width="22"></path>
+            <path d="M103-20c0 104-35 141 24 226 51 74 34 126 8 205" stroke-width="15"></path>
+            <path d="M-20 298c107-49 192-18 274-3 77 15 137-25 289-111" stroke-width="12"></path>
+          </g>
+          <path
+            d="M85 320c38-93 90-69 127-133 22-38 22-78 67-96"
+            fill="none"
+            stroke="#1459b8"
+            stroke-width="9"
+            stroke-linecap="round"></path>
+          <path
+            d="M294 84c43-7 75 7 110 51"
+            fill="none"
+            stroke="#ff7a1a"
+            stroke-width="9"
+            stroke-linecap="round"
+            stroke-dasharray="2 20"></path>
+          <circle cx="85" cy="320" r="12" fill="#fff" stroke="#1459b8" stroke-width="7"></circle>
+          <circle cx="294" cy="84" r="12" fill="#fff" stroke="#ff7a1a" stroke-width="7"></circle>
+          <circle cx="404" cy="135" r="12" fill="#fff" stroke="#ff7a1a" stroke-width="7"></circle>
+          <path d="m350 152-24 42h48z" fill="#ffe5d0" stroke="#b54708" stroke-width="3"></path>
+          <path
+            d="M350 165v12M350 183h.01"
+            fill="none"
+            stroke="#b54708"
+            stroke-width="3"
+            stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    min-height: 65vh;
+    align-items: center;
+    padding-block: clamp(4rem, 9vw, 8rem);
+  }
+
+  .not-found__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(24rem, 1.1fr);
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: center;
+  }
+
+  .not-found__content > p:not(.eyebrow) {
+    max-width: 35rem;
+    margin-top: 1.25rem;
+    color: var(--color-neutral-600);
+    font-size: 1.06rem;
+  }
+
+  .not-found h1 {
+    font-size: clamp(2.5rem, 6vw, 4.75rem);
+  }
+
+  .not-found__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 1.25rem;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .not-found__visual {
+    filter: drop-shadow(0 24px 60px rgb(7 26 56 / 10%));
+  }
+
+  @media (max-width: 48rem) {
+    .not-found__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .not-found__visual {
+      width: min(100%, 34rem);
+      margin-inline: auto;
+    }
+  }
+
+  @media (max-width: 35rem) {
+    .not-found__actions {
+      display: grid;
+      align-items: stretch;
+    }
+
+    .not-found__actions .text-link {
+      justify-content: center;
+    }
+  }
+</style>

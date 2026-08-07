@@ -1,0 +1,215 @@
+<section class="section development" id="status" aria-labelledby="development-heading">
+  <div class="container">
+    <div class="development__panel">
+      <div class="development__icon" aria-hidden="true">
+        <svg viewBox="0 0 48 48">
+          <path
+            d="M24 5 43 39H5z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.7"
+            stroke-linejoin="round"></path>
+          <path
+            d="M24 17v10"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"></path>
+          <circle cx="24" cy="33" r="2" fill="currentColor"></circle>
+        </svg>
+      </div>
+
+      <div class="development__content">
+        <p class="development__kicker">Harap dibaca sebelum menggunakan informasi GATHRA</p>
+        <h2 id="development-heading">Status pengembangan</h2>
+        <p class="development__lead">
+          GATHRA masih berada pada tahap pengembangan dan pilot. Informasi banjir yang ditampilkan
+          saat ini menggunakan data simulasi dan tidak boleh menjadi satu-satunya dasar dalam
+          mengambil keputusan keselamatan.
+        </p>
+
+        <ul class="development__points">
+          <li>
+            <strong>Cakupan data dapat belum lengkap.</strong>
+            <span>Area tanpa indikasi tidak membuktikan bahwa kondisi bebas banjir.</span>
+          </li>
+          <li>
+            <strong>Kondisi jalan dapat berubah.</strong>
+            <span>Periksa keadaan sekitar dan jangan bergantung pada satu sumber informasi.</span>
+          </li>
+          <li>
+            <strong>Ingesti IoT produksi belum tersedia.</strong>
+            <span>Bahaya banjir saat ini belum berasal dari jaringan sensor produksi penuh.</span>
+          </li>
+        </ul>
+
+        <div class="development__action">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"></path>
+            <path
+              d="M12 10v6M12 7h.01"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+          <p>Selalu ikuti arahan resmi, petugas di lapangan, dan otoritas setempat.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .development {
+    padding-top: clamp(4rem, 8vw, 7rem);
+  }
+
+  .development__panel {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(1.25rem, 3.5vw, 2.5rem);
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    overflow: hidden;
+    border: 1px solid var(--color-blue-200);
+    border-left: 0.45rem solid var(--color-orange-600);
+    border-radius: var(--radius-xl);
+    background: var(--color-blue-50);
+  }
+
+  .development__panel::after {
+    position: absolute;
+    top: -8rem;
+    right: -8rem;
+    width: 20rem;
+    height: 20rem;
+    border: 3rem solid rgb(29 111 232 / 5%);
+    border-radius: 50%;
+    content: '';
+    pointer-events: none;
+  }
+
+  .development__icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: clamp(3.5rem, 7vw, 4.75rem);
+    height: clamp(3.5rem, 7vw, 4.75rem);
+    place-items: center;
+    border: 1px solid var(--color-orange-100);
+    border-radius: 1.35rem;
+    color: var(--color-orange-700);
+    background: var(--color-orange-50);
+  }
+
+  .development__icon svg {
+    width: 55%;
+  }
+
+  .development__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .development__kicker {
+    margin-bottom: 0.7rem;
+    color: var(--color-orange-800);
+    font-size: 0.73rem;
+    font-weight: 800;
+    letter-spacing: 0.085em;
+    text-transform: uppercase;
+  }
+
+  .development h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+
+  .development__lead {
+    max-width: 58rem;
+    margin-top: 1rem;
+    color: var(--color-blue-950);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    font-weight: 590;
+  }
+
+  .development__points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .development__points li {
+    min-width: 0;
+    padding: 1rem;
+    border: 1px solid var(--color-blue-100);
+    border-radius: var(--radius-md);
+    background: rgb(255 255 255 / 74%);
+  }
+
+  .development__points strong,
+  .development__points span {
+    display: block;
+  }
+
+  .development__points strong {
+    color: var(--color-blue-900);
+    font-size: 0.9rem;
+  }
+
+  .development__points span {
+    margin-top: 0.35rem;
+    color: var(--color-neutral-600);
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .development__action {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 1.35rem;
+    color: var(--color-blue-900);
+    font-size: 0.88rem;
+    font-weight: 700;
+  }
+
+  .development__action svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: 0 0 auto;
+  }
+
+  @media (max-width: 48rem) {
+    .development__points {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .development__panel {
+      grid-template-columns: 1fr;
+      border-left-width: 0.3rem;
+    }
+
+    .development__icon {
+      width: 3.5rem;
+      height: 3.5rem;
+    }
+
+    .development__action {
+      align-items: flex-start;
+    }
+
+    .development__action svg {
+      margin-top: 0.16rem;
+    }
+  }
+</style>

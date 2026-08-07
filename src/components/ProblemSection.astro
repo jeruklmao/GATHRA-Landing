@@ -1,0 +1,125 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const problems = [
+  {
+    number: '01',
+    title: 'Cepat bukan satu-satunya konteks',
+    description:
+      'Rute tercepat belum tentu memiliki indikasi risiko banjir paling rendah pada data yang tersedia.',
+  },
+  {
+    number: '02',
+    title: 'Kondisi jalan dapat berubah',
+    description:
+      'Informasi perlu dibaca sebagai konteks yang dinamis, bukan sebagai kepastian kondisi di lapangan.',
+  },
+  {
+    number: '03',
+    title: 'Alternatif perlu terlihat jelas',
+    description:
+      'Pengendara membutuhkan perbandingan visual agar dapat mempertimbangkan rute dan mengambil keputusan sendiri.',
+  },
+];
+---
+
+<section class="section problem" id="tentang" aria-labelledby="problem-heading">
+  <div class="container">
+    <div id="problem-heading">
+      <SectionHeading
+        eyebrow="Konteks perjalanan"
+        title="Mengapa GATHRA dibutuhkan?"
+        description="GATHRA menambahkan konteks indikasi banjir ke dalam pilihan rute—tanpa menyederhanakan kondisi jalan menjadi sebuah janji keselamatan."
+      />
+    </div>
+
+    <div class="problem__grid">
+      {
+        problems.map((problem) => (
+          <article class="problem-card">
+            <div class="problem-card__top">
+              <span class="problem-card__number" aria-hidden="true">
+                {problem.number}
+              </span>
+              <svg viewBox="0 0 48 48" aria-hidden="true">
+                <path
+                  d="M7 34c6-14 12-20 19-16 5 3 6 10 15 4"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.7"
+                  stroke-linecap="round"
+                />
+                <circle cx="7" cy="34" r="3.5" fill="currentColor" />
+                <circle cx="41" cy="22" r="3.5" fill="#d95700" />
+              </svg>
+            </div>
+            <h3>{problem.title}</h3>
+            <p>{problem.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .problem-card {
+    min-width: 0;
+    padding: clamp(1.35rem, 3vw, 2rem);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-lg);
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    transition:
+      transform var(--transition-fast),
+      box-shadow var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .problem-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-blue-200);
+    box-shadow: var(--shadow-md);
+  }
+
+  .problem-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.4rem;
+  }
+
+  .problem-card__number {
+    color: var(--color-blue-700);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+
+  .problem-card svg {
+    width: 2.75rem;
+    color: var(--color-blue-700);
+  }
+
+  .problem-card p {
+    margin-top: 0.75rem;
+    color: var(--color-neutral-600);
+    font-size: 0.94rem;
+  }
+
+  @media (max-width: 48rem) {
+    .problem__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .problem-card__top {
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>

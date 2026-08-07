@@ -1,0 +1,242 @@
+---
+import BrandMark from './BrandMark.astro';
+
+const navItems = [
+  { href: '/#fitur', label: 'Fitur' },
+  { href: '/#cara-kerja', label: 'Cara Kerja' },
+  { href: '/#tentang', label: 'Tentang' },
+  { href: '/#status', label: 'Status Pengembangan' },
+];
+---
+
+<header class="site-header" data-site-header>
+  <div class="site-header__inner container">
+    <a class="site-header__brand" href="/" aria-label="GATHRA, kembali ke beranda">
+      <BrandMark compact />
+    </a>
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Buka menu navigasi"
+      data-menu-button
+    >
+      <svg class="menu-button__open" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 7h16M4 12h16M4 17h16"></path>
+      </svg>
+      <svg class="menu-button__close" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="m6 6 12 12M18 6 6 18"></path>
+      </svg>
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Navigasi utama" data-site-nav>
+      <ul class="site-nav__list">
+        {
+          navItems.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <a class="button button--primary site-nav__cta" href="/#cara-kerja">Lihat Cara Kerja</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector('[data-site-header]');
+
+  if (header instanceof HTMLElement) {
+    const button = header.querySelector('[data-menu-button]');
+    const navigation = header.querySelector('[data-site-nav]');
+
+    if (button instanceof HTMLButtonElement && navigation instanceof HTMLElement) {
+      const closeMenu = (restoreFocus = false) => {
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', 'Buka menu navigasi');
+        header.removeAttribute('data-menu-open');
+        if (restoreFocus) button.focus();
+      };
+
+      const openMenu = () => {
+        button.setAttribute('aria-expanded', 'true');
+        button.setAttribute('aria-label', 'Tutup menu navigasi');
+        header.setAttribute('data-menu-open', '');
+      };
+
+      button.addEventListener('click', () => {
+        if (button.getAttribute('aria-expanded') === 'true') closeMenu();
+        else openMenu();
+      });
+
+      navigation.addEventListener('click', (event) => {
+        if (event.target instanceof HTMLAnchorElement) closeMenu();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') {
+          closeMenu(true);
+        }
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!header.contains(event.target as Node)) closeMenu();
+      });
+
+      window.matchMedia('(min-width: 56.01rem)').addEventListener('change', (event) => {
+        if (event.matches) closeMenu();
+      });
+    }
+  }
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    border-bottom: 1px solid rgb(229 231 235 / 86%);
+    background: rgb(255 255 255 / 96%);
+    box-shadow: 0 1px 0 rgb(7 26 56 / 2%);
+  }
+
+  .site-header__inner {
+    display: flex;
+    min-height: 4.75rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    min-width: max-content;
+    min-height: 2.75rem;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .site-nav__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.4rem, 1.3vw, 1.15rem);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-nav__list a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding-inline: 0.45rem;
+    border-radius: 0.45rem;
+    color: var(--color-neutral-700);
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .site-nav__list a:hover {
+    color: var(--color-blue-700);
+  }
+
+  .site-nav__cta {
+    min-width: max-content;
+  }
+
+  .menu-button {
+    display: none;
+    width: 2.875rem;
+    height: 2.875rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-pill);
+    color: var(--color-blue-900);
+    background: var(--color-white);
+    cursor: pointer;
+  }
+
+  .menu-button svg {
+    width: 1.35rem;
+    height: 1.35rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .menu-button__close {
+    display: none;
+  }
+
+  @media (max-width: 56rem) {
+    .site-header__inner {
+      min-height: 4.25rem;
+    }
+
+    .menu-button {
+      display: inline-flex;
+    }
+
+    .site-nav {
+      position: absolute;
+      top: calc(100% + 0.55rem);
+      right: var(--container-gutter);
+      left: var(--container-gutter);
+      display: none;
+      max-height: calc(100vh - 6rem);
+      align-items: stretch;
+      padding: 0.75rem;
+      overflow-y: auto;
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-lg);
+      background: var(--color-white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .site-header[data-menu-open] .site-nav {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .site-header[data-menu-open] .menu-button__open {
+      display: none;
+    }
+
+    .site-header[data-menu-open] .menu-button__close {
+      display: block;
+    }
+
+    .site-nav__list {
+      display: grid;
+      gap: 0.1rem;
+    }
+
+    .site-nav__list a {
+      width: 100%;
+      min-height: 2.875rem;
+      padding-inline: 0.8rem;
+    }
+
+    .site-nav__list a:hover {
+      background: var(--color-blue-50);
+    }
+
+    .site-nav__cta {
+      width: 100%;
+    }
+  }
+</style>

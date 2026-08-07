@@ -1,0 +1,117 @@
+---
+import BrandMark from './BrandMark.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__main">
+      <div class="site-footer__brand">
+        <a href="/" aria-label="GATHRA, kembali ke beranda"><BrandMark /></a>
+        <p>
+          Pilot navigasi Android yang membantu pengguna mempertimbangkan indikasi risiko banjir
+          dalam memilih rute.
+        </p>
+      </div>
+
+      <nav class="site-footer__nav" aria-label="Navigasi footer">
+        <a href="/#fitur">Fitur</a>
+        <a href="/#cara-kerja">Cara Kerja</a>
+        <a href="/#status">Status Pengembangan</a>
+        <a href="/privacy">Privasi</a>
+      </nav>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p>© {year} GATHRA. Proyek dalam tahap pengembangan.</p>
+      <p>
+        Data peta © <a href="https://www.openstreetmap.org/copyright" rel="license"
+          >OpenStreetMap contributors</a
+        >
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: clamp(3rem, 6vw, 4.5rem) 2rem;
+    border-top: 1px solid var(--color-neutral-200);
+    background: var(--color-white);
+  }
+
+  .site-footer__main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .site-footer__brand > a {
+    display: inline-flex;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .site-footer__brand p {
+    max-width: 34rem;
+    margin-top: 1rem;
+    color: var(--color-neutral-600);
+    font-size: 0.94rem;
+  }
+
+  .site-footer__nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.25rem 1.5rem;
+  }
+
+  .site-footer__nav a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--color-neutral-700);
+    font-size: 0.9rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .site-footer__nav a:hover {
+    color: var(--color-blue-700);
+  }
+
+  .site-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-neutral-200);
+    color: var(--color-neutral-500);
+    font-size: 0.82rem;
+  }
+
+  .site-footer__bottom a {
+    color: var(--color-neutral-700);
+    font-weight: 620;
+  }
+
+  @media (max-width: 48rem) {
+    .site-footer__main {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .site-footer__bottom {
+      display: grid;
+      gap: 0.7rem;
+    }
+  }
+
+  @media (max-width: 25rem) {
+    .site-footer__nav {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Privasi — GATHRA';
+const description =
+  'Informasi privasi untuk situs GATHRA, termasuk penggunaan analitik, lokasi, dan tautan eksternal.';
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/privacy">
+  <main class="legal" id="main-content">
+    <div class="container legal__container">
+      <a class="legal__back" href="/">
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path
+            d="m12.5 4.5-5.5 5.5 5.5 5.5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        Kembali ke beranda
+      </a>
+
+      <header class="legal__header">
+        <p class="eyebrow">Informasi situs</p>
+        <h1>Privasi di situs GATHRA</h1>
+        <p>
+          Halaman ini menjelaskan praktik situs informasi GATHRA di <strong>gathra.my.id</strong>.
+          Praktik aplikasi Android dan layanan API dapat diatur secara terpisah.
+        </p>
+        <span>Terakhir diperbarui: 7 Agustus 2026</span>
+      </header>
+
+      <div class="legal__content">
+        <section aria-labelledby="privacy-landing">
+          <h2 id="privacy-landing">Penggunaan landing page</h2>
+          <p>
+            Landing page GATHRA tidak memerlukan akun, tidak menyediakan formulir pengguna, dan
+            tidak meminta lokasi presisi perangkat. Situs ini bersifat informasional dan tidak
+            mengambil data rute maupun data banjir dari layanan GATHRA di browser.
+          </p>
+        </section>
+
+        <section aria-labelledby="privacy-analytics">
+          <h2 id="privacy-analytics">Analitik dan pelacakan</h2>
+          <p>
+            Cloudflare Web Analytics tidak diaktifkan pada situs ini. GATHRA juga tidak memasang
+            skrip analitik, piksel pemasaran, atau cookie pelacakan. Penyedia hosting dapat tetap
+            memproses data permintaan jaringan yang diperlukan untuk mengirimkan halaman dan menjaga
+            keamanan layanan.
+          </p>
+        </section>
+
+        <section aria-labelledby="privacy-location">
+          <h2 id="privacy-location">Lokasi</h2>
+          <p>
+            Landing page tidak meminta izin lokasi dan tidak mengumpulkan koordinat presisi.
+            Aplikasi Android GATHRA dapat meminta lokasi foreground saat fitur terkait digunakan;
+            penggunaan tersebut berada di luar ruang lingkup halaman ini dan akan dijelaskan dalam
+            informasi privasi aplikasi ketika tersedia untuk distribusi publik.
+          </p>
+        </section>
+
+        <section aria-labelledby="privacy-external">
+          <h2 id="privacy-external">Tautan eksternal</h2>
+          <p>
+            Tautan atribusi dapat membawa Anda ke layanan eksternal, seperti OpenStreetMap. Situs
+            eksternal memiliki ketentuan dan praktik privasinya sendiri. GATHRA tidak mengendalikan
+            situs tersebut.
+          </p>
+        </section>
+
+        <section aria-labelledby="privacy-changes">
+          <h2 id="privacy-changes">Perubahan informasi</h2>
+          <p>
+            Halaman ini akan diperbarui jika fitur situs, analitik, atau kanal publik berubah.
+            GATHRA belum mencantumkan alamat kontak publik pada landing page; detail yang belum
+            diverifikasi tidak akan ditambahkan.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .legal {
+    padding-block: clamp(2.5rem, 6vw, 5rem) clamp(5rem, 9vw, 8rem);
+  }
+
+  .legal__container {
+    width: min(100% - (2 * var(--container-gutter)), 55rem);
+  }
+
+  .legal__back {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--color-blue-700);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .legal__back svg {
+    width: 1rem;
+  }
+
+  .legal__header {
+    margin-top: clamp(2.5rem, 6vw, 4.5rem);
+    padding-bottom: clamp(2.5rem, 6vw, 4rem);
+    border-bottom: 1px solid var(--color-neutral-200);
+  }
+
+  .legal__header h1 {
+    max-width: 48rem;
+    font-size: clamp(2.5rem, 6vw, 4.6rem);
+  }
+
+  .legal__header > p:not(.eyebrow) {
+    max-width: 45rem;
+    margin-top: 1.25rem;
+    color: var(--color-neutral-600);
+    font-size: clamp(1rem, 1.8vw, 1.12rem);
+  }
+
+  .legal__header > span {
+    display: block;
+    margin-top: 1.25rem;
+    color: var(--color-neutral-500);
+    font-size: 0.82rem;
+  }
+
+  .legal__content {
+    display: grid;
+    gap: 2.5rem;
+    padding-top: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .legal__content section {
+    display: grid;
+    grid-template-columns: minmax(11rem, 0.5fr) minmax(0, 1.2fr);
+    gap: clamp(1rem, 5vw, 3rem);
+  }
+
+  .legal__content h2 {
+    font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+    letter-spacing: -0.02em;
+  }
+
+  .legal__content p {
+    color: var(--color-neutral-600);
+  }
+
+  @media (max-width: 40rem) {
+    .legal__content section {
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+    }
+  }
+</style>

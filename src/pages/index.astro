@@ -1,18 +1,24 @@
 ---
-const title = 'GATHRA — Navigasi dengan Pertimbangan Risiko Banjir';
+import DevelopmentNotice from '../components/DevelopmentNotice.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import ProblemSection from '../components/ProblemSection.astro';
+import ProjectCta from '../components/ProjectCta.astro';
+import ScreenshotGallery from '../components/ScreenshotGallery.astro';
+import TechnologySection from '../components/TechnologySection.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
-  </head>
-  <body>
-    <main>
-      <h1>GATHRA</h1>
-      <p>Navigasi dengan pertimbangan risiko banjir.</p>
-    </main>
-  </body>
-</html>
+<BaseLayout>
+  <main id="main-content">
+    <Hero />
+    <ProblemSection />
+    <FeatureGrid />
+    <HowItWorks />
+    <ScreenshotGallery />
+    <DevelopmentNotice />
+    <TechnologySection />
+    <ProjectCta />
+  </main>
+</BaseLayout>

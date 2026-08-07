@@ -9,6 +9,7 @@
     "npm": ">=11.17.0"
   },
   "scripts": {
+    "assets:generate": "PLAYWRIGHT_BROWSERS_PATH=0 LD_LIBRARY_PATH=${PLAYWRIGHT_LIBRARY_PATH:-$PWD/.tools/playwright-root/usr/lib/x86_64-linux-gnu} node scripts/render-og-image.mjs",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
