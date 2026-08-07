@@ -45,10 +45,15 @@ const description =
         <section aria-labelledby="privacy-analytics">
           <h2 id="privacy-analytics">Analitik dan pelacakan</h2>
           <p>
-            Cloudflare Web Analytics tidak diaktifkan pada situs ini. GATHRA juga tidak memasang
-            skrip analitik, piksel pemasaran, atau cookie pelacakan. Penyedia hosting dapat tetap
-            memproses data permintaan jaringan yang diperlukan untuk mengirimkan halaman dan menjaga
-            keamanan layanan.
+            Landing page GATHRA menggunakan <a
+              href="https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/"
+              rel="external">Cloudflare Web Analytics</a
+            > untuk memahami kinerja dan penggunaan situs secara agregat. Cloudflare memuat beacon JavaScript
+            yang mengukur metrik performa, seperti waktu muat dan Core Web Vitals. Menurut dokumentasi
+            Cloudflare, beacon ini tidak menggunakan cookie ataupun mengakses
+            <em>localStorage</em> atau <em>sessionStorage</em>. Cloudflare tetap memproses data
+            permintaan jaringan yang diperlukan untuk menyajikan, mengamankan, dan mengukur layanan.
+            GATHRA tidak memasang piksel pemasaran atau layanan analitik lain pada landing page ini.
           </p>
         </section>
 

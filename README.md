@@ -11,8 +11,10 @@ route choices with flood-risk context based on available data.
 ## Product boundary
 
 The website is informational only. It has no account, authentication, database, server-side
-rendering, backend API calls, location access, or analytics. Current flood information in the
-GATHRA pilot is simulation-based and must not be described as proof that a route is safe.
+rendering, backend API calls, or location access. Cloudflare Web Analytics measures aggregate site
+performance and usage without cookies or browser storage; no marketing pixels or additional
+analytics services are included. Current flood information in the GATHRA pilot is simulation-based
+and must not be described as proof that a route is safe.
 
 The interface previews on the homepage are original illustrations of verified Android flows. They
 are intentionally labeled as illustrations and are not presented as current literal screenshots.

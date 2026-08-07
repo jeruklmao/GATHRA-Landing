@@ -39,7 +39,9 @@ test('built output contains no private, development, or misleading references', 
   }
 });
 
-test('the browser makes requests only to the landing-page origin', async ({ page }) => {
+test('the browser allows only the landing page and Cloudflare Web Analytics origins', async ({
+  page,
+}) => {
   const requests: string[] = [];
   page.on('request', (request) => requests.push(request.url()));
 
@@ -48,9 +50,21 @@ test('the browser makes requests only to the landing-page origin', async ({ page
 
   expect(requests.length).toBeGreaterThan(0);
   for (const request of requests) {
-    expect(new URL(request).origin).toBe('http://127.0.0.1:4321');
+    expect(['http://127.0.0.1:4321', 'https://static.cloudflareinsights.com']).toContain(
+      new URL(request).origin,
+    );
   }
   expect(requests.some((request) => request.includes('api.gathra.my.id'))).toBe(false);
+});
+
+test('the security policy permits the Cloudflare analytics beacon without widening connections', async () => {
+  const headers = await readFile(join(distDirectory, '_headers'), 'utf8');
+
+  expect(headers).toContain("connect-src 'self'");
+  expect(headers).toContain(
+    "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
+  );
+  expect(headers).not.toContain('api.gathra.my.id');
 });
 
 test('all internal page and fragment links resolve', async ({ page, request }) => {

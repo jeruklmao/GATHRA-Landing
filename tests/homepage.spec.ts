@@ -75,7 +75,7 @@ test('keeps the development disclaimer and attribution prominent', async ({ page
   await expect(attribution).toHaveAttribute('href', 'https://www.openstreetmap.org/copyright');
 });
 
-test('describes privacy and disabled analytics honestly', async ({ page }) => {
+test('describes privacy and enabled analytics honestly', async ({ page }) => {
   await page.goto('/privacy');
 
   await expect(page).toHaveTitle('Privasi — GATHRA');
@@ -87,8 +87,10 @@ test('describes privacy and disabled analytics honestly', async ({ page }) => {
     page.getByRole('heading', { level: 1, name: 'Privasi di situs GATHRA' }),
   ).toBeVisible();
   await expect(
-    page.getByText('Cloudflare Web Analytics tidak diaktifkan pada situs ini.'),
+    page.getByText(/Landing page GATHRA menggunakan Cloudflare Web Analytics/),
   ).toBeVisible();
+  await expect(page.getByText(/beacon ini tidak menggunakan cookie/)).toBeVisible();
+  await expect(page.getByText(/tidak memasang piksel pemasaran/)).toBeVisible();
   await expect(page.getByText(/Landing page tidak meminta izin lokasi/)).toBeVisible();
   await expect(page.getByText(/Landing page GATHRA tidak memerlukan akun/)).toBeVisible();
 });
