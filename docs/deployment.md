@@ -7,13 +7,13 @@ The production branch is `main`. A normal push to `origin/main` triggers the con
 Cloudflare Pages build; no manual service restart, tunnel change, or DNS change is part of a routine
 content deployment.
 
-## 1. Connect the private GitHub repository
+## 1. Connect the GitHub repository
 
 In the Cloudflare dashboard:
 
 1. Open **Workers & Pages**.
 2. Select **Create application** → **Pages** → **Import an existing Git repository**.
-3. Authorize the Cloudflare GitHub integration for the private repository
+3. Authorize the Cloudflare GitHub integration for the repository
    `JerukLMAO/GATHRA-landing`.
 4. Select the repository and begin setup.
 
@@ -96,5 +96,5 @@ Then verify in a browser at mobile and desktop widths:
 
 Cloudflare Pages retains deployments. If the production deployment is faulty, use the Pages
 deployment history to roll back to the last verified deployment. If custom-domain activation itself
-fails, keep the previous DNS target until the `pages.dev` deployment and domain association are both
+fails, keep the existing DNS target until the `pages.dev` deployment and domain association are both
 healthy; do not improvise changes to the API hostname.

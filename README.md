@@ -17,9 +17,8 @@ analytics services are included. The active pilot uses production IoT sensor obs
 limited Jakarta–Tangerang area. Sensor-backed information is still a modeled observation and must
 not be described as proof that an area or route is safe.
 
-The homepage uses current Android screenshots selected from the immutable source captures under
-`/home/fadhli/src/screenshot/`. Optimized WebP derivatives live in `public/images/app/`; the
-original PNG files are not served by the website. The official logo comes from
+The homepage uses current Android screenshots. Optimized WebP assets live in
+`public/images/app/`; source captures are not served by the website. The official logo comes from
 `GATHRA-Android/design/source/logo-GATHRA.svg`, and the visible identity colors are GATHRA Blue
 `#44B5F8`, GATHRA Orange `#FF751F`, and white.
 
@@ -32,8 +31,8 @@ original PNG files are not served by the website. The official logo comes from
 - Playwright and axe-core for browser/accessibility checks
 - Lighthouse for local quality thresholds
 
-Astro 7.2.0 requires a modern Node runtime. The repository pins Node 24.19.0 in `.node-version` and
-npm 11.17.0 in `package.json`.
+The repository pins Astro 7.2.0, Node 24.19.0 in `.node-version`, and npm 11.17.0 in
+`package.json`.
 
 ## Local development
 
