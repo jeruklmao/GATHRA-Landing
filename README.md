@@ -1,7 +1,7 @@
 # GATHRA landing page
 
-Official static landing page for **GATHRA**, an Indonesian Android navigation pilot that presents
-route choices with flood-risk context based on available data.
+Official static landing page for **GATHRA**, an Indonesian flood-monitoring and navigation pilot
+that presents sensor-backed conditions and route choices with flood context.
 
 - Public website: <https://gathra.my.id>
 - Public API: separate at `api.gathra.my.id`; the landing page never calls it from the browser.
@@ -13,11 +13,15 @@ route choices with flood-risk context based on available data.
 The website is informational only. It has no account, authentication, database, server-side
 rendering, backend API calls, or location access. Cloudflare Web Analytics measures aggregate site
 performance and usage without cookies or browser storage; no marketing pixels or additional
-analytics services are included. Current flood information in the GATHRA pilot is simulation-based
-and must not be described as proof that a route is safe.
+analytics services are included. The active pilot uses production IoT sensor observations in a
+limited Jakarta–Tangerang area. Sensor-backed information is still a modeled observation and must
+not be described as proof that an area or route is safe.
 
-The interface previews on the homepage are original illustrations of verified Android flows. They
-are intentionally labeled as illustrations and are not presented as current literal screenshots.
+The homepage uses current Android screenshots selected from the immutable source captures under
+`/home/fadhli/src/screenshot/`. Optimized WebP derivatives live in `public/images/app/`; the
+original PNG files are not served by the website. The official logo comes from
+`GATHRA-Android/design/source/logo-GATHRA.svg`, and the visible identity colors are GATHRA Blue
+`#44B5F8`, GATHRA Orange `#FF751F`, and white.
 
 ## Stack
 
@@ -94,6 +98,8 @@ src/
 └── styles/
 
 public/
+├── brand/
+├── images/app/
 ├── _headers
 ├── favicon.svg
 ├── og-image.png

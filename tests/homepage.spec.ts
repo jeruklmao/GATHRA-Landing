@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
-const title = 'GATHRA — Navigasi dengan Pertimbangan Risiko Banjir';
+const title = 'GATHRA — Pemantauan Banjir dan Navigasi';
 const description =
-  'GATHRA membantu pengendara melihat area yang terindikasi banjir dan memilih rute dengan risiko lebih rendah berdasarkan data yang tersedia.';
+  'GATHRA menghubungkan sensor IoT, pemantauan kondisi banjir, dan analisis rute untuk membantu pengguna memahami kondisi area yang dipantau.';
 
 test('publishes accurate title, canonical, social, and structured metadata', async ({ page }) => {
   await page.goto('/');
@@ -41,16 +41,18 @@ test('renders one h1 and every required homepage section', async ({ page }) => {
   await page.goto('/');
 
   await expect(page.locator('h1')).toHaveCount(1);
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('GATHRA');
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    'Pemantauan banjir dan navigasi',
+  );
 
   for (const heading of [
-    'Mengapa GATHRA dibutuhkan?',
+    'Apa yang dilakukan GATHRA?',
     'Fitur utama',
     'Cara kerja GATHRA',
-    'Lihat GATHRA bekerja',
-    'Status pengembangan',
+    'GATHRA di Android',
+    'Pilot aktif, cakupan masih terbatas',
     'Teknologi di balik GATHRA',
-    'Ikuti perkembangan GATHRA',
+    'Pahami data sebelum mempertimbangkan rute.',
   ]) {
     await expect(page.getByRole('heading', { level: 2, name: heading })).toBeVisible();
   }
@@ -62,10 +64,12 @@ test('keeps the development disclaimer and attribution prominent', async ({ page
   const developmentSection = page.locator('#status');
   await expect(developmentSection).toBeVisible();
   await expect(developmentSection).toContainText(
-    'GATHRA masih berada pada tahap pengembangan dan pilot. Informasi banjir yang ditampilkan saat ini menggunakan data simulasi dan tidak boleh menjadi satu-satunya dasar dalam mengambil keputusan keselamatan.',
+    'GATHRA masih dalam tahap pengembangan dan pilot. Informasi banjir berasal dari sensor pada area yang dipantau dan tidak boleh menjadi satu-satunya dasar keputusan keselamatan.',
   );
-  await expect(developmentSection).toContainText('Cakupan data dapat belum lengkap.');
-  await expect(developmentSection).toContainText('Ingesti IoT produksi belum tersedia.');
+  await expect(developmentSection).toContainText(
+    'Area tanpa cakupan sensor tidak berarti bebas banjir.',
+  );
+  await expect(developmentSection).toContainText('Pilot berada di area terbatas.');
   await expect(developmentSection).toContainText(
     'Selalu ikuti arahan resmi, petugas di lapangan, dan otoritas setempat.',
   );

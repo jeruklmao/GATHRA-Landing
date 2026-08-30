@@ -3,6 +3,10 @@
 This project is a static Astro site. Deployment must not introduce a dependency on the GATHRA API
 or home server.
 
+The production branch is `main`. A normal push to `origin/main` triggers the connected
+Cloudflare Pages build; no manual service restart, tunnel change, or DNS change is part of a routine
+content deployment.
+
 ## 1. Connect the private GitHub repository
 
 In the Cloudflare dashboard:
@@ -47,7 +51,7 @@ Expected results:
 - browser developer tools show no request to `api.gathra.my.id`;
 - canonical metadata still points to `https://gathra.my.id` by design;
 - `_headers` applies the content security, permissions, referrer, and MIME-sniffing policies;
-- the development notice and OpenStreetMap attribution are visible.
+- the pilot safety notice and OpenStreetMap attribution are visible.
 
 ## 3. Attach `gathra.my.id`
 

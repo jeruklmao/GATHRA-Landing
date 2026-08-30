@@ -60,7 +60,8 @@ test('respects reduced-motion preferences', async ({ browser }) => {
   await page.goto('/');
 
   const animationDuration = await page
-    .locator('.hero-visual__route')
+    .locator('.preview__phone')
+    .first()
     .evaluate((element) => Number.parseFloat(getComputedStyle(element).animationDuration) * 1000);
   expect(animationDuration).toBeLessThanOrEqual(0.02);
 

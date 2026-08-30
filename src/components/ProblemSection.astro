@@ -4,21 +4,21 @@ import SectionHeading from './SectionHeading.astro';
 const problems = [
   {
     number: '01',
-    title: 'Cepat bukan satu-satunya konteks',
+    title: 'Kondisi berasal dari lapangan',
     description:
-      'Rute tercepat belum tentu memiliki indikasi risiko banjir paling rendah pada data yang tersedia.',
+      'Sensor GATHRA mengukur kondisi permukaan air dan lingkungan secara berkala di area pemantauan.',
   },
   {
     number: '02',
-    title: 'Kondisi jalan dapat berubah',
+    title: 'Informasi hadir di peta',
     description:
-      'Informasi perlu dibaca sebagai konteks yang dinamis, bukan sebagai kepastian kondisi di lapangan.',
+      'Aplikasi Android menampilkan area yang dipantau, kondisi sensor terkini, dan konteks banjir yang diketahui.',
   },
   {
     number: '03',
-    title: 'Alternatif perlu terlihat jelas',
+    title: 'Rute dinilai dengan konteks banjir',
     description:
-      'Pengendara membutuhkan perbandingan visual agar dapat mempertimbangkan rute dan mengambil keputusan sendiri.',
+      'GATHRA membandingkan kandidat rute terhadap area banjir terpantau dan menampilkan alternatif ketika tersedia.',
   },
 ];
 ---
@@ -27,9 +27,9 @@ const problems = [
   <div class="container">
     <div id="problem-heading">
       <SectionHeading
-        eyebrow="Konteks perjalanan"
-        title="Mengapa GATHRA dibutuhkan?"
-        description="GATHRA menambahkan konteks indikasi banjir ke dalam pilihan rute—tanpa menyederhanakan kondisi jalan menjadi sebuah janji keselamatan."
+        eyebrow="Dari sensor ke perjalanan"
+        title="Apa yang dilakukan GATHRA?"
+        description="GATHRA membuat kondisi area pemantauan lebih mudah dipahami dan membawanya ke dalam pertimbangan rute—tanpa menjanjikan bahwa suatu perjalanan pasti aman."
       />
     </div>
 

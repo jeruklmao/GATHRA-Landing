@@ -10,9 +10,9 @@ interface Props {
   robots?: string;
 }
 
-const defaultTitle = 'GATHRA — Navigasi dengan Pertimbangan Risiko Banjir';
+const defaultTitle = 'GATHRA — Pemantauan Banjir dan Navigasi';
 const defaultDescription =
-  'GATHRA membantu pengendara melihat area yang terindikasi banjir dan memilih rute dengan risiko lebih rendah berdasarkan data yang tersedia.';
+  'GATHRA menghubungkan sensor IoT, pemantauan kondisi banjir, dan analisis rute untuk membantu pengguna memahami kondisi area yang dipantau.';
 const {
   title = defaultTitle,
   description = defaultDescription,
@@ -40,7 +40,7 @@ const schema = {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="robots" content={robots} />
-    <meta name="theme-color" content="#0D2B5B" />
+    <meta name="theme-color" content="#44B5F8" />
 
     <title>{title}</title>
     <link rel="canonical" href={canonicalUrl} />
@@ -55,13 +55,13 @@ const schema = {
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="GATHRA, navigasi dengan pertimbangan risiko banjir" />
+    <meta property="og:image:alt" content="GATHRA, pemantauan banjir dan navigasi" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageUrl} />
-    <meta name="twitter:image:alt" content="GATHRA, navigasi dengan pertimbangan risiko banjir" />
+    <meta name="twitter:image:alt" content="GATHRA, pemantauan banjir dan navigasi" />
 
     <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   </head>

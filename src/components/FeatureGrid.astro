@@ -4,39 +4,39 @@ import SectionHeading from './SectionHeading.astro';
 
 const features = [
   {
-    icon: 'routes' as const,
-    title: 'Analisis rute alternatif',
-    description:
-      'Bandingkan rute utama dan alternatif yang tersedia untuk titik perjalanan pilihan.',
-  },
-  {
     icon: 'flood' as const,
-    title: 'Visualisasi indikasi banjir',
+    title: 'Pemantauan banjir berbasis sensor',
     description:
-      'Lihat area berpoligon yang ditandai berdasarkan snapshot data banjir yang tersedia.',
+      'Melihat kondisi area yang dipantau menggunakan pengukuran berkala dari sensor GATHRA.',
   },
   {
     icon: 'risk' as const,
-    title: 'Informasi tingkat risiko rute',
+    title: 'Visualisasi area risiko',
     description:
-      'Pahami tingkat risiko dan konteks evaluasi pada setiap pilihan rute yang ditampilkan.',
+      'Area pemantauan dan status kondisi ditampilkan langsung pada peta dengan kategori yang jelas.',
+  },
+  {
+    icon: 'modes' as const,
+    title: 'Informasi sensor terkini',
+    description:
+      'Melihat ketinggian air, jarak permukaan, suhu, kelembapan, dan status pengukuran yang tersedia.',
+  },
+  {
+    icon: 'routes' as const,
+    title: 'Analisis rute alternatif',
+    description:
+      'Rute dievaluasi dengan mempertimbangkan area banjir yang diketahui dan dibandingkan saat alternatif tersedia.',
   },
   {
     icon: 'search' as const,
     title: 'Pencarian lokasi',
-    description:
-      'Cari lokasi dalam wilayah pilot atau tentukan titik secara langsung melalui peta.',
+    description: 'Mencari tujuan atau memilih titik pada peta dalam wilayah layanan pilot.',
   },
   {
     icon: 'navigation' as const,
     title: 'Navigasi turn-by-turn',
     description:
-      'Ikuti petunjuk perjalanan, progres rute, dan penghitungan ulang selama navigasi aktif.',
-  },
-  {
-    icon: 'modes' as const,
-    title: 'Dukungan mobil dan motor',
-    description: 'Pilih moda mobil atau motor sebelum membandingkan rute untuk perjalanan Anda.',
+      'Mengikuti petunjuk perjalanan dengan pembaruan rute ketika posisi atau kondisi banjir berubah.',
   },
 ];
 ---
@@ -45,9 +45,9 @@ const features = [
   <div class="container">
     <div id="features-heading">
       <SectionHeading
-        eyebrow="Kemampuan terverifikasi"
+        eyebrow="Pengalaman Android"
         title="Fitur utama"
-        description="Fitur berikut tersedia pada pilot Android saat ini dan disajikan tanpa klaim di luar kemampuan sistem."
+        description="Aplikasi menyatukan peta, informasi sensor, pencarian, evaluasi rute, dan navigasi dalam pengalaman yang mudah dipahami."
       />
     </div>
 

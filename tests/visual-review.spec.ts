@@ -17,6 +17,11 @@ for (const capture of captures) {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/');
     await page.evaluate(() => document.fonts.ready);
+    for (const image of await page.locator('img[loading="lazy"]').all()) {
+      await image.scrollIntoViewIfNeeded();
+      await image.evaluate((element) => (element as HTMLImageElement).decode());
+    }
+    await page.evaluate(() => window.scrollTo(0, 0));
 
     await page.screenshot({
       path: `${screenshotDirectory}${capture.name}`,

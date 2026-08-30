@@ -2,55 +2,39 @@
 interface Props {
   compact?: boolean;
 }
-
 const { compact = false } = Astro.props;
 ---
 
 <span class:list={['brand', { 'brand--compact': compact }]}>
-  <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true">
-    <rect width="40" height="40" rx="13" fill="currentColor"></rect>
-    <path
-      d="M10.5 27.6c2.5-6.4 4.9-9.8 8-10.1 3.7-.4 4.7 4 8.1 3.8 1.2-.1 2.3-.7 3.1-1.7"
-      fill="none"
-      stroke="white"
-      stroke-width="3"
-      stroke-linecap="round"></path>
-    <circle cx="10.5" cy="27.6" r="3" fill="#ff8a32" stroke="white" stroke-width="1.5"></circle>
-    <circle cx="29.6" cy="19.6" r="3" fill="white"></circle>
-  </svg>
+  <img class="brand__mark" src="/brand/gathra-logo.svg" alt="" width="512" height="512" />
   <span class="brand__word">GATHRA</span>
 </span>
-
 <style>
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
-    color: var(--color-blue-900);
+    gap: 0.62rem;
   }
-
   .brand__mark {
-    width: 2.35rem;
-    height: 2.35rem;
+    width: 2.55rem;
+    height: 2.55rem;
     flex: 0 0 auto;
   }
-
   .brand__word {
+    color: var(--color-blue-800);
     font-size: 1.08rem;
     font-weight: 830;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     line-height: 1;
   }
-
   .brand--compact .brand__mark {
-    width: 2.1rem;
-    height: 2.1rem;
+    width: 2.25rem;
+    height: 2.25rem;
   }
-
   @media (max-width: 23rem) {
     .brand__word {
       font-size: 0.98rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.09em;
     }
   }
 </style>
